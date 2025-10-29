@@ -1,0 +1,340 @@
+/* --- Base Setup --- */
+:root {
+    --color-primary: #007bff;
+    --color-secondary: #6c757d;
+    --color-success: #28a745;
+    --color-warning: #ffc107;
+    --color-danger: #dc3545;
+    --color-background: #f4f7f6;
+    --color-card-bg: #ffffff;
+    --color-text-dark: #333;
+    --color-text-light: #fefefe;
+    --border-radius: 10px;
+    --shadow-default: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.management-container {
+    font-family: 'Inter', 'Arial', sans-serif;
+    background-color: var(--color-background);
+    padding: 25px;
+    min-height: 100vh;
+    color: var(--color-text-dark);
+}
+
+.management-container h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 20px;
+}
+
+/* --- Controles de Lista (Búsqueda/Filtro/Botón Nuevo) --- */
+.list-controls {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 15px;
+    background-color: var(--color-card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-default);
+}
+
+.search-input, .filter-select {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    flex-grow: 1; /* Permite que crezcan en escritorio */
+    min-width: 150px;
+}
+
+.add-button {
+    padding: 10px 20px;
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    flex-shrink: 0;
+}
+
+.add-button:hover {
+    background-color: #0056b3;
+}
+
+/* --- Tabla de Empleados --- */
+.employee-list-container {
+    background-color: var(--color-card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-default);
+    padding: 0;
+    overflow-x: auto; /* Para manejar tablas grandes en móvil */
+}
+
+.employee-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 800px; /* Asegura un ancho mínimo para la tabla */
+}
+
+.employee-table th, .employee-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    vertical-align: middle;
+}
+
+.employee-table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    color: var(--color-secondary);
+}
+
+.employee-table tbody tr:hover {
+    background-color: #fcfcfc;
+}
+
+.no-results {
+    padding: 20px;
+    text-align: center;
+    color: var(--color-secondary);
+}
+
+/* --- Botón de Acción en Tabla --- */
+.action-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-primary);
+    font-size: 1rem;
+    padding: 5px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.action-button:hover {
+    background-color: #e9ecef;
+}
+
+/* --- Badges de Estado --- */
+.status-badge, .status-badge-lg {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.8rem;
+    color: var(--color-text-light);
+    text-transform: uppercase;
+}
+
+.status-badge-lg {
+    font-size: 0.9rem;
+    padding: 8px 15px;
+    border-radius: 8px;
+}
+
+.status-active { background-color: var(--color-success); }
+.status-suspended { background-color: var(--color-warning); color: var(--color-text-dark);}
+.status-retired { background-color: var(--color-danger); }
+.status-info { background-color: var(--color-secondary); }
+
+
+/* --- Vistas: Formulario y Detalle --- */
+.form-view, .detail-view {
+    background-color: var(--color-card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-default);
+    padding: 30px;
+}
+
+.form-view h2 {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+/* --- Formulario --- */
+.employee-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-group {
+    flex: 1;
+}
+
+.form-group.full-width {
+    flex: 0 0 100%;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.btn-primary, .btn-secondary, .btn-back {
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: opacity 0.3s;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    border: none;
+}
+.btn-primary:hover { opacity: 0.9; }
+
+.btn-secondary {
+    background-color: var(--color-secondary);
+    color: var(--color-text-light);
+    border: none;
+}
+.btn-secondary:hover { opacity: 0.9; }
+
+.btn-back {
+    background: none;
+    border: 1px solid #ccc;
+    color: var(--color-text-dark);
+}
+
+/* --- Detalle de Empleado --- */
+.detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.detail-card {
+    border: 1px solid #eee;
+    border-radius: 8px;
+}
+
+.info-section {
+    padding: 20px 30px;
+    border-bottom: 1px solid #eee;
+}
+.info-section:last-child {
+    border-bottom: none;
+}
+
+.info-section h3 {
+    color: var(--color-primary);
+    font-size: 1.25rem;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.profile-header {
+    text-align: center;
+    background-color: #f8f9fa;
+}
+
+.employee-name {
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+.employee-position {
+    color: var(--color-secondary);
+    margin-bottom: 15px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.info-item strong {
+    display: block;
+    color: var(--color-primary);
+    font-size: 0.85rem;
+    margin-bottom: 3px;
+    text-transform: uppercase;
+}
+.info-item span {
+    font-size: 1.05rem;
+    display: block;
+}
+.info-item.full-width {
+    grid-column: 1 / -1;
+}
+
+
+/* --- Media Queries (Responsiveness) --- */
+@media (max-width: 900px) {
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+    .form-group {
+        margin-bottom: 15px;
+    }
+    .form-group.full-width {
+            margin-bottom: 0;
+    }
+    .list-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .search-input, .filter-select, .add-button {
+        width: 100%;
+        flex-grow: 0;
+    }
+    .employee-table {
+        min-width: 600px;
+    }
+}
+
+@media (max-width: 600px) {
+    .management-container {
+        padding: 10px;
+    }
+    .form-view, .detail-view {
+        padding: 20px;
+    }
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+    .employee-name {
+        font-size: 1.5rem;
+    }
+}

@@ -1,0 +1,125 @@
+/* --- Base Setup --- */
+:root {
+    --color-primary: #007bff;
+    --color-secondary: #6c757d;
+    --color-card-bg: #ffffff;
+    --color-text-dark: #333;
+    --color-text-light: #fefefe;
+    --border-radius: 10px;
+    --shadow-navbar: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+    background-color: var(--color-card-bg);
+    box-shadow: var(--shadow-navbar);
+    height: 70px;
+    padding: 10px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky; /* Fija la barra en la parte superior */
+    top: 0;
+    z-index: 1000;
+    font-family: 'Inter', 'Arial', sans-serif;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.navbar-links {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-item {
+    padding: 10px 15px;
+    text-decoration: none;
+    color: var(--color-text-dark);
+    font-weight: 500;
+    border-radius: 6px;
+    transition: background-color 0.3s, color 0.3s;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.nav-item:hover {
+    background-color: #f0f0f0;
+    color: var(--color-primary);
+}
+
+/* Estilo del elemento activo */
+.nav-item.active {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    font-weight: 600;
+}
+
+.nav-item.active:hover {
+    background-color: #0056b3;
+    color: var(--color-text-light);
+}
+
+.nav-icon {
+    margin-right: 5px;
+}
+
+/* Estilo específico para el botón de Salir (Logout) */
+.nav-item[data-id="login"] {
+        background-color: var(--color-secondary);
+        color: var(--color-text-light);
+}
+.nav-item[data-id="login"]:hover {
+        background-color: #5a6268;
+        color: var(--color-text-light);
+}
+
+
+/* --- Media Queries para Responsiveness --- */
+@media (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .navbar-links {
+        width: 100%;
+        justify-content: space-around;
+        gap: 5px;
+    }
+    
+    .navbar-brand {
+        margin-bottom: 5px;
+    }
+    
+    .nav-item {
+        padding: 8px 10px;
+        font-size: 0.9rem;
+        flex-grow: 1;
+        justify-content: center;
+        text-align: center;
+    }
+    
+    /* Ocultar texto en móviles, dejando solo el icono */
+    .nav-item span:last-child {
+        display: none;
+    }
+    .nav-icon {
+        margin-right: 0;
+        font-size: 1.1rem;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 800px) {
+    .navbar-links {
+        gap: 10px;
+    }
+    .nav-item {
+            padding: 8px 12px;
+    }
+}

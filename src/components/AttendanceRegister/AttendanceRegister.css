@@ -1,0 +1,210 @@
+/* --- Base Setup --- */
+:root {
+    --color-primary: #007bff;
+    --color-success: #28a745;
+    --color-danger: #dc3545;
+    --color-background: #f4f7f6;
+    --color-card-bg: #ffffff;
+    --color-text-dark: #333;
+    --color-text-light: #fefefe;
+    --border-radius: 12px;
+    --shadow-heavy: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.attendance-register-page {
+    font-family: 'Inter', 'Arial', sans-serif;
+    background-color: var(--color-background);
+    min-height: calc(90vh - 70px); /* Ajuste para dejar espacio a la navbar */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+/* --- Clock / Visualizador --- */
+.clock-display {
+    font-size: 4rem;
+    font-weight: 200;
+    color: var(--color-text-dark);
+    margin-bottom: 20px;
+    padding: 15px 30px;
+    border-radius: var(--border-radius);
+    background-color: var(--color-card-bg);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+}
+
+/* --- Register Card Container --- */
+.register-card {
+    background-color: var(--color-card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-heavy);
+    padding: 10px;
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+}
+
+/* --- Header and Title --- */
+.register-header {
+    margin-bottom: 30px;
+}
+
+.register-header h2 {
+    font-size: 1.8rem;
+    color: var(--color-primary);
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.register-header p {
+    color: #6c757d;
+    font-size: 1rem;
+}
+
+/* --- Form Elements --- */
+.register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.id-input {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 1.5rem; 
+    text-align: center;
+    box-sizing: border-box; 
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.id-input:focus {
+    border-color: var(--color-primary);
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.25);
+}
+
+/* --- Action Toggle/Selector (New CSS) --- */
+.action-toggle {
+    display: flex;
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    /* Importante para que el selector quede arriba del input */
+    margin-bottom: 20px; 
+}
+
+.action-toggle input[type="radio"] {
+    display: none;
+}
+
+.action-toggle label {
+    flex-grow: 1;
+    padding: 15px 10px;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--color-text-dark);
+    background-color: #e9ecef; /* Fondo gris claro para no seleccionado */
+    user-select: none;
+}
+
+/* Estilo para Entrada (IN) cuando está seleccionado */
+.action-toggle input[id="action-in"]:checked + label {
+    background-color: var(--color-success);
+    color: var(--color-text-light);
+}
+
+/* Estilo para Salida (OUT) cuando está seleccionado */
+.action-toggle input[id="action-out"]:checked + label {
+    background-color: var(--color-danger);
+    color: var(--color-text-light);
+}
+
+/* Efecto hover general */
+.action-toggle label:hover {
+    background-color: #cfd9e1;
+}
+
+/* Evitar hover en el seleccionado */
+.action-toggle input:checked + label:hover {
+    opacity: 0.9;
+}
+
+/* --- Feedback Message --- */
+.feedback-message {
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    border: 1px solid transparent;
+}
+
+.feedback-message.success {
+    color: var(--color-success);
+    background-color: rgba(40, 167, 69, 0.1);
+    border-color: var(--color-success);
+}
+
+.feedback-message.error {
+    color: var(--color-danger);
+    background-color: rgba(220, 53, 69, 0.1);
+    border-color: var(--color-danger);
+}
+
+/* --- Submit Button (Large Touch Target) --- */
+.register-button {
+    width: 100%;
+    padding: 20px;
+    color: var(--color-text-light);
+    border: none;
+    border-radius: 8px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    letter-spacing: 1px;
+}
+
+.register-button:active {
+    transform: scale(0.99);
+}
+
+/* Estilos dinámicos para el botón */
+.register-button.register-button-in {
+    background-color: var(--color-success); /* Verde para Entrada */
+}
+
+.register-button.register-button-in:hover {
+    background-color: #1e7e34;
+}
+
+.register-button.register-button-out {
+    background-color: var(--color-danger); /* Rojo para Salida */
+}
+
+.register-button.register-button-out:hover {
+    background-color: #bd2130;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 600px) {
+    .register-card {
+        margin: 0 10px;
+        padding: 30px 20px;
+    }
+    .register-header h2 {
+        font-size: 1.6rem;
+    }
+    .clock-display {
+        font-size: 3rem;
+    }
+}
